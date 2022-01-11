@@ -1,0 +1,16 @@
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+    gateway:
+      routes:
+        - id: query_route01
+          uri: https://fanyi.baidu.com
+          predicates:
+            - Path=/translate
+  application:
+    name: gulimall-gateway
+server:
+  port: 88
+

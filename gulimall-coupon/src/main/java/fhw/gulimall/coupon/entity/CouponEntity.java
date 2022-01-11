@@ -7,15 +7,17 @@ import java.math.BigDecimal;
 import java.io.Serializable;
 import java.util.Date;
 import lombok.Data;
+import lombok.experimental.Accessors;
 
 /**
  * 优惠券信息
- * 
+ *
  * @author fhw
  * @email fanhaowena@163.com
  * @date 2022-01-11 12:42:58
  */
 @Data
+@Accessors(chain = true)
 @TableName("sms_coupon")
 public class CouponEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
