@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.annotation.TableName;
 
 import java.io.Serializable;
 import lombok.Data;
+import lombok.experimental.Accessors;
 
 /**
  * 属性&属性分组关联

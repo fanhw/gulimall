@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: gulimall-thrid-party
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+server:
+  port: 30000
+alibaba:
+  cloud:
+    access-key: LTAI5tAmxSDZCAbRmyLr88UC
+    secret-key: FMeowFTJ8PD0BzIGUInMbndE2YiTnK
+    oss:
+      endpoint: oss-cn-shanghai.aliyuncs.com
+      bucket: gulimall-fhw
+

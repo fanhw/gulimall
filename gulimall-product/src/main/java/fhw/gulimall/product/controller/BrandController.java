@@ -1,9 +1,15 @@
 package fhw.gulimall.product.controller;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.Map;
 
+import fhw.gulimall.common.valid.AddGroup;
+import fhw.gulimall.common.valid.UpdateGroup;
+import fhw.gulimall.common.valid.UpdateStatusGroup;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +21,7 @@ import fhw.gulimall.product.service.BrandService;
 import fhw.gulimall.common.utils.PageUtils;
 import fhw.gulimall.common.utils.R;
 
+import javax.validation.Valid;
 
 
 /**
@@ -34,8 +41,9 @@ public class BrandController {
      * 列表
      */
     @RequestMapping("/list")
-   // @RequiresPermissions("product:brand:list")
-    public R list(@RequestParam Map<String, Object> params){
+    // @RequiresPermissions("product:brand:list")
+    public R list(@RequestParam Map<String, Object> params) {
+
         PageUtils page = brandService.queryPage(params);
 
         return R.ok().put("page", page);
@@ -47,8 +55,9 @@ public class BrandController {
      */
     @RequestMapping("/info/{brandId}")
     //@RequiresPermissions("product:brand:info")
-    public R info(@PathVariable("brandId") Long brandId){
-		BrandEntity brand = brandService.getById(brandId);
+    public R info(@PathVariable("brandId") Long brandId) {
+
+        BrandEntity brand = brandService.getById(brandId);
 
         return R.ok().put("brand", brand);
     }
@@ -57,10 +66,9 @@ public class BrandController {
      * 保存
      */
     @RequestMapping("/save")
-   // @RequiresPermissions("product:brand:save")
-    public R save(@RequestBody BrandEntity brand){
-		brandService.save(brand);
-
+    // @RequiresPermissions("product:brand:save")
+    public R save(@Validated(value = AddGroup.class) @RequestBody BrandEntity brand) {
+        brandService.save(brand);
         return R.ok();
     }
 
@@ -68,20 +76,30 @@ public class BrandController {
      * 修改
      */
     @RequestMapping("/update")
-   // @RequiresPermissions("product:brand:update")
-    public R update(@RequestBody BrandEntity brand){
-		brandService.updateById(brand);
+    // @RequiresPermissions("product:brand:update")
+    public R update(@Validated(value = {UpdateGroup.class}) @RequestBody BrandEntity brand) {
+        brandService.updateDetail(brand);
 
         return R.ok();
     }
 
     /**
+     * 修改
+     */
+    @RequestMapping("/update/status")
+    // @RequiresPermissions("product:brand:update")
+    public R updateStatus(@Validated(value = {UpdateStatusGroup.class}) @RequestBody BrandEntity brand) {
+        brandService.updateById(brand);
+
+        return R.ok();
+    }
+    /**
      * 删除
      */
     @RequestMapping("/delete")
-   // @RequiresPermissions("product:brand:delete")
-    public R delete(@RequestBody Long[] brandIds){
-		brandService.removeByIds(Arrays.asList(brandIds));
+    // @RequiresPermissions("product:brand:delete")
+    public R delete(@RequestBody Long[] brandIds) {
+        brandService.removeByIds(Arrays.asList(brandIds));
 
         return R.ok();
     }
