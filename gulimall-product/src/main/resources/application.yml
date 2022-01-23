@@ -34,11 +34,6 @@ logging:
 #        access-key: LTAI5tAmxSDZCAbRmyLr88UC
 #        secret-key: FMeowFTJ8PD0BzIGUInMbndE2YiTnK
 #      endpoint: oss-cn-shanghai.aliyuncs.com
-alibaba:
-  cloud:
-    access-key: LTAI5tAmxSDZCAbRmyLr88UC
-    secret-key: FMeowFTJ8PD0BzIGUInMbndE2YiTnK
-    oss:
-      endpoint: oss-cn-shanghai.aliyuncs.com
+
 
 
