@@ -201,12 +201,12 @@ public class SpuInfoServiceImpl extends ServiceImpl<SpuInfoDao, SpuInfoEntity> i
                 wrapper.eq(SpuInfoEntity::getPublishStatus, status);
             });
         }
-        if (StringUtils.isNotBlank(brandId)) {
+        if (StringUtils.isNotBlank(brandId) && !"0".equalsIgnoreCase(brandId)) {
             lambdaQueryWrapper.and((wrapper) -> {
                 wrapper.eq(SpuInfoEntity::getBrandId, brandId);
             });
         }
-        if (StringUtils.isNotBlank(catelogId)) {
+        if (StringUtils.isNotBlank(catelogId) && !"0".equalsIgnoreCase(catelogId)) {
             lambdaQueryWrapper.and((wrapper) -> {
                 wrapper.eq(SpuInfoEntity::getCatalogId, catelogId);
             });

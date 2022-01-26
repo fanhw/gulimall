@@ -1,8 +1,11 @@
 package fhw.gulimall.product.controller;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
+import fhw.gulimall.product.entity.ProductAttrValueEntity;
+import fhw.gulimall.product.service.ProductAttrValueService;
 import fhw.gulimall.product.vo.AttrGroupRelationVO;
 import fhw.gulimall.product.vo.AttrRespVO;
 import fhw.gulimall.product.vo.AttrVO;
@@ -28,6 +31,15 @@ public class AttrController {
     @Autowired
     private AttrService attrService;
 
+    @Autowired
+    private ProductAttrValueService productAttrValueService;
+
+    // /product/attr/base/listforspu/{spuId}
+    @GetMapping("/base/listforspu/{spuId}")
+    public R baseAttrListForSpu(@PathVariable("spuId") Long spuId) {
+        List<ProductAttrValueEntity> entities = productAttrValueService.baseAttrListForSpu(spuId);
+        return R.ok().put("data", entities);
+    }
 
     @GetMapping("/{attrType}/list/{catelogId}")
     public R baseAttrList(@RequestParam Map<String, Object> params,
@@ -79,6 +91,15 @@ public class AttrController {
     // @RequiresPermissions("product:attr:update")
     public R update(@RequestBody AttrVO attr) {
         attrService.updateAttr(attr);
+
+        return R.ok();
+    }
+
+
+    @RequestMapping("/update/{spuId}")
+    public R updateSpuAttr(@PathVariable("spuId") Long spuId,
+                           @RequestBody List<ProductAttrValueEntity> list) {
+        productAttrValueService.updateSpuAttr(spuId,list);
 
         return R.ok();
     }
