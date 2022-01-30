@@ -77,57 +77,57 @@
             <artifactId>spring-cloud-loadbalancer</artifactId>
             <version>2.2.2.RELEASE</version>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>com.alibaba.cloud</groupId>-->
-<!--            <artifactId>aliyun-oss-spring-boot-starter</artifactId>-->
-<!--            <version>1.0.0</version>-->
-<!--            <exclusions>-->
-<!--                &lt;!&ndash;排除aliyun-java-sdk-oss  版本过低    &ndash;&gt;-->
-<!--                <exclusion>-->
-<!--                    <groupId>com.aliyun</groupId>-->
-<!--                    <artifactId>aliyun-java-sdk-oss</artifactId>-->
-<!--                </exclusion>-->
-<!--                &lt;!&ndash;排除aliyun-sdk-oss，版本太低，是3.1版本的&ndash;&gt;-->
-<!--                <exclusion>-->
-<!--                    <groupId>com.aliyun.oss</groupId>-->
-<!--                    <artifactId>aliyun-sdk-oss</artifactId>-->
-<!--                </exclusion>-->
-<!--            </exclusions>-->
-<!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>com.alibaba.cloud</groupId>-->
+        <!--            <artifactId>aliyun-oss-spring-boot-starter</artifactId>-->
+        <!--            <version>1.0.0</version>-->
+        <!--            <exclusions>-->
+        <!--                &lt;!&ndash;排除aliyun-java-sdk-oss  版本过低    &ndash;&gt;-->
+        <!--                <exclusion>-->
+        <!--                    <groupId>com.aliyun</groupId>-->
+        <!--                    <artifactId>aliyun-java-sdk-oss</artifactId>-->
+        <!--                </exclusion>-->
+        <!--                &lt;!&ndash;排除aliyun-sdk-oss，版本太低，是3.1版本的&ndash;&gt;-->
+        <!--                <exclusion>-->
+        <!--                    <groupId>com.aliyun.oss</groupId>-->
+        <!--                    <artifactId>aliyun-sdk-oss</artifactId>-->
+        <!--                </exclusion>-->
+        <!--            </exclusions>-->
+        <!--        </dependency>-->
 
-<!--        &lt;!&ndash; 导入新的依赖&ndash;&gt;-->
-<!--        <dependency>-->
-<!--            <groupId>com.aliyun</groupId>-->
-<!--            <artifactId>aliyun-java-sdk-core</artifactId>-->
-<!--            <version>4.5.7</version>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>com.aliyun.oss</groupId>-->
-<!--            <artifactId>aliyun-sdk-oss</artifactId>-->
-<!--            <version>3.10.2</version>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>javax.xml.bind</groupId>-->
-<!--            <artifactId>jaxb-api</artifactId>-->
-<!--            <version>2.3.1</version>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>javax.activation</groupId>-->
-<!--            <artifactId>activation</artifactId>-->
-<!--            <version>1.1.1</version>-->
-<!--        </dependency>-->
-<!--        &lt;!&ndash; no more than 2.3.3&ndash;&gt;-->
-<!--        <dependency>-->
-<!--            <groupId>org.glassfish.jaxb</groupId>-->
-<!--            <artifactId>jaxb-runtime</artifactId>-->
-<!--            <version>2.3.3</version>-->
-<!--        </dependency>-->
+        <!--        &lt;!&ndash; 导入新的依赖&ndash;&gt;-->
+        <!--        <dependency>-->
+        <!--            <groupId>com.aliyun</groupId>-->
+        <!--            <artifactId>aliyun-java-sdk-core</artifactId>-->
+        <!--            <version>4.5.7</version>-->
+        <!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>com.aliyun.oss</groupId>-->
+        <!--            <artifactId>aliyun-sdk-oss</artifactId>-->
+        <!--            <version>3.10.2</version>-->
+        <!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>javax.xml.bind</groupId>-->
+        <!--            <artifactId>jaxb-api</artifactId>-->
+        <!--            <version>2.3.1</version>-->
+        <!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>javax.activation</groupId>-->
+        <!--            <artifactId>activation</artifactId>-->
+        <!--            <version>1.1.1</version>-->
+        <!--        </dependency>-->
+        <!--        &lt;!&ndash; no more than 2.3.3&ndash;&gt;-->
+        <!--        <dependency>-->
+        <!--            <groupId>org.glassfish.jaxb</groupId>-->
+        <!--            <artifactId>jaxb-runtime</artifactId>-->
+        <!--            <version>2.3.3</version>-->
+        <!--        </dependency>-->
         <!-- https://mvnrepository.com/artifact/javax.validation/validation-api -->
-<!--        <dependency>-->
-<!--            <groupId>javax.validation</groupId>-->
-<!--            <artifactId>validation-api</artifactId>-->
-<!--            <version>2.0.1.Final</version>-->
-<!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>javax.validation</groupId>-->
+        <!--            <artifactId>validation-api</artifactId>-->
+        <!--            <version>2.0.1.Final</version>-->
+        <!--        </dependency>-->
     </dependencies>
 
     <dependencyManagement>
@@ -139,13 +139,13 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-<!--            <dependency>-->
-<!--                <groupId>com.alibaba.cloud</groupId>-->
-<!--                <artifactId>aliyun-spring-boot-dependencies</artifactId>-->
-<!--                <version>1.0.0</version>-->
-<!--                <type>pom</type>-->
-<!--                <scope>import</scope>-->
-<!--            </dependency>-->
+            <!--            <dependency>-->
+            <!--                <groupId>com.alibaba.cloud</groupId>-->
+            <!--                <artifactId>aliyun-spring-boot-dependencies</artifactId>-->
+            <!--                <version>1.0.0</version>-->
+            <!--                <type>pom</type>-->
+            <!--                <scope>import</scope>-->
+            <!--            </dependency>-->
         </dependencies>
     </dependencyManagement>
 
