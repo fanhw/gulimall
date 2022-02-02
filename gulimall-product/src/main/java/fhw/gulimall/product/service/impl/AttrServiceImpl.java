@@ -238,6 +238,11 @@ public class AttrServiceImpl extends ServiceImpl<AttrDao, AttrEntity> implements
         return pageUtils;
     }
 
+    @Override
+    public List<Long> selectSearchAttrIds(List<Long> attrIdList) {
+        return baseMapper.selectSearchAttrIds(attrIdList);
+    }
+
     // 模糊查询
     private void fuzzyHandle(Map<String, Object> params, LambdaQueryWrapper<AttrEntity> lambdaQueryWrapper) {
         String key = (String) params.get("key");

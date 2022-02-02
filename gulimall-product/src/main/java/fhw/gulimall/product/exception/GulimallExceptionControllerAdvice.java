@@ -17,7 +17,7 @@ import java.util.Map;
  * @date 2022-01-19 21:26
  */
 @Slf4j
-@RestControllerAdvice(basePackages = "fhw.gulimall.product.controller")
+@RestControllerAdvice(basePackages = "fhw.gulimall.product.app")
 public class GulimallExceptionControllerAdvice {
 
     @ExceptionHandler(value = {MethodArgumentNotValidException.class})

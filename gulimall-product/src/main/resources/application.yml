@@ -13,6 +13,11 @@ spring:
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+8
+  thymeleaf:
+    cache: false
+  redis:
+    port: 6379
+    host: 1.15.106.99
 mybatis-plus:
   mapper-locations: classpath:/mapper/**/*.xml
   global-config:
@@ -25,7 +30,7 @@ server:
 
 logging:
   level:
-    fhw.gulimall.product: debug
+    fhw.gulimall.product: error
 
 #alibaba:
 #  cloud:

@@ -15,6 +15,10 @@ spring:
             - Path=/api/product/**
           filters:
             - RewritePath=/api/(?<segment>.*), /$\{segment}
+        - id: product_web_route
+          uri: lb://gulimall-product
+          predicates:
+            - Path=/web/**
         - id: third_party_route
           uri: lb://gulimall-thrid-party
           predicates:
@@ -39,6 +43,11 @@ spring:
             - Path=/api/**
           filters:
             - RewritePath=/api/(?<segment>.*), /renren-fast/$\{segment}
+        - id: gulimall_host_route
+          uri: lb://gulimall-product
+          predicates:
+            - Host=**.4r84c16324.uicp.fun,4r84c16324.uicp.fun,gulimall.com
+
 
 
   application:

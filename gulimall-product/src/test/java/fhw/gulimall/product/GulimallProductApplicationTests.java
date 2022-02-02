@@ -12,12 +12,16 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.data.redis.core.ValueOperations;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.Arrays;
 import java.util.List;
+import java.util.UUID;
+import java.util.concurrent.TimeUnit;
 
 
 @Slf4j
@@ -33,14 +37,27 @@ class GulimallProductApplicationTests {
     private CategoryService categoryService;
 
 
+    @Autowired
+    private StringRedisTemplate stringRedisTemplate;
+
     @Test
-    public void  testUtils(){
-      //  LambdaQueryWrapper<BrandEntity> queryWrapper = WrapperUtils.getQueryWrapper(BrandEntity.class);
+    public void testStringRedisTemplate() {
+        ValueOperations<String, String> opsForValue = stringRedisTemplate.opsForValue();
+        opsForValue.set("hello", "world" + UUID.randomUUID().toString(), 3600, TimeUnit.SECONDS);
+        String hello = opsForValue.get("hello");
+        System.out.println("保存的数据为" + hello);
+    }
+
+
+    @Test
+    public void testUtils() {
+        //  LambdaQueryWrapper<BrandEntity> queryWrapper = WrapperUtils.getQueryWrapper(BrandEntity.class);
         LambdaQueryWrapper<BrandEntity> queryWrapper = WrapperUtils.getQueryWrapper();
-        queryWrapper.eq(BrandEntity::getName,"华为");
+        queryWrapper.eq(BrandEntity::getName, "华为");
         BrandEntity one = brandService.getOne(queryWrapper);
         System.out.println(one);
     }
+
     @Test
     public void testFindPath() {
         Long[] catelogPath = categoryService.findCatelogPath(225L);

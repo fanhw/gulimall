@@ -3,12 +3,14 @@ package fhw.gulimall.ware.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import fhw.gulimall.common.utils.R;
 import fhw.gulimall.ware.feign.ProductFeignService;
+import fhw.gulimall.ware.vo.SkuHasStockVO;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
@@ -82,6 +84,18 @@ public class WareSkuServiceImpl extends ServiceImpl<WareSkuDao, WareSkuEntity> i
         } else {
             wareSkuDao.addStock(skuId, wareId, skuNum);
         }
+    }
+
+    @Override
+    public List<SkuHasStockVO> getSkusHasStock(List<Long> skuIds) {
+        List<SkuHasStockVO> collect = skuIds.stream().map(skuId -> {
+            SkuHasStockVO skuHasStockVO = new SkuHasStockVO();
+            Long count = baseMapper.getSkuStock(skuId);
+            skuHasStockVO.setSkuId(skuId);
+            skuHasStockVO.setHasStock(count == null ? false : count > 0);
+            return skuHasStockVO;
+        }).collect(Collectors.toList());
+        return collect;
     }
 
 }
